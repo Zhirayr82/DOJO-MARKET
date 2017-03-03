@@ -1,0 +1,57 @@
+<div class="container">
+	<!-- titre -->
+	<div class="col-sm-6 col-sm-offset-3">
+		<h1>Wild-Market</h1>
+	</div>
+	<!-- list des fruits -->
+	<div class="col-sm-6 col-sm-offset-3">
+		<label for="sel1">Choizsisez le fruit</label>
+		<select ng-model="$ctrl.selectiveFruit.name" class="form-control" id="sel1">
+			<option value=""></option>
+			<option ng-repeat="fruit in $ctrl.fruitList" value="{{fruit.name}}">{{fruit.name}}</option>
+		</select>
+	</div>
+	<!-- quantité -->
+	<div class="form-group">
+		<label class="col-sm-6 col-sm-offset-3" control-label">Remplisez le quantité</label>
+		<div class="col-sm-6 col-sm-offset-3">
+			<input ng-model="$ctrl.quantity" type="number" name="number"class="form-control" id="focusedInput">
+		</div>
+	</div>
+	<!-- button Ajouter -->
+	<div class="col-sm-6 col-sm-offset-3">
+		<button class="btn btn-success btn-block" ng-click="$ctrl.add()">Ajouter</button><br><br>
+	</div>
+	<!-- le tableau  -->
+	<div class="col-sm-6 col-sm-offset-3">
+		<table class="table table-condensed" id="table">
+			<!-- les titres de tableau -->
+			<tr class="danger">
+				<td><b><big>Nom de fruit</big></b></td>	
+				<td><b><big>Quantité</big></b></td>
+				<td><b><big>Prix</big></b></td>
+				<td><b><big>Montent</big></b></td>
+				<td><b><big>Button</big></b></td>
+			</tr>
+			<!-- list des achats -->
+			<tr class="warning" ng-repeat="x in $ctrl.achatFruit">
+				<td align="left" style="border-right: 1px solid #cdd0d4">{{$ctrl.count.name}}</td>
+				<td align="right" style="border-right: 1px solid #cdd0d4">{{$ctrl.quantity}} </td>
+				<td align="right" style="border-right: 1px solid #cdd0d4">{{$ctrl.count.prix}}</td>
+				<td align="right" >{{$ctrl.montent}}</td>
+				<td>	
+					<button type="button" ng-click="$ctrl.deleteAchat()">Suprimer</button>
+				</td>
+			</tr>
+			<!-- total montent -->
+			<tr class="danger">
+				<td></td>	
+				<td></td>
+				<td></td>
+				<td ng-model="$ctrl.t" align="right"><h4>Total est : {{$ctrl.t}}</h4></td>
+				<td></td>
+			</tr>
+		</table>
+	</div>
+
+</div>
